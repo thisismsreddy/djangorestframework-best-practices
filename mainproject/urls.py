@@ -18,4 +18,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^app1/', include('withoutmodelsapp.urls')),
+    url(r'^app2/', include('models_extra_fields_app.urls')),
 ]
+

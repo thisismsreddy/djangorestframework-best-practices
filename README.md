@@ -13,3 +13,6 @@ djangorestfrafmework 3.3.3
 - 5. Writing a read only seralizers and override create method etc... 
 - 6. Writing a custom error handling  
 
+# withoutmodelsapp
+
+In this app I've created a serializer with models and it's has there files one of field is not require user input and i make that as read only. in the views file I've used two type of views one jest APIView and other one is generic views the advantage of using a generic view it's give helps on create documenations on browerbull API as well as swagger UI. 
