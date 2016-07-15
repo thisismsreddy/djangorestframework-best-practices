@@ -21,4 +21,5 @@ In this app I've created a serializer with models and it's has there files one o
 # models_extra_fields_app
 
 In this app I've create a simple model with three fileds , and added one extra field we can use this field make data base lookups and 
-third party api calls and we jest over riding create methold on views. 
+third party api calls and we jest over riding create methold on views And extra field can be simple string field or 
+it can me model method or serializer method Note when your add extra field you have to over ride create method on serializer or in the view 
