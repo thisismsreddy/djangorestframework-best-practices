@@ -28,3 +28,28 @@ class PersonView(generics.CreateAPIView):
 
                 )
             person.save()
+
+# in this exaple we are using user login state.
+# writeing onley one view we have all four methods 
+# get(pk),patch(pk),put(pk),delete(pk).
+# we allowing onley asisiated user to perform any action
+
+class PersonDetailView(generics.RetrieveUpdateDestroyAPIView):
+
+    model = Person
+    serializer_class = PersonSerializer
+    permission_classes = (
+        permissions.IsAuthenticated,
+    )
+
+
+    def get_queryset(self):
+        return UserProfile.objects.filter(user=self.request.user.id)
+
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+        return Response(serializer.data)            
